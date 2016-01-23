@@ -18,17 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeE-1H-UxV">
-                                <rect key="frame" x="258" y="376" width="97" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="tx9-xm-Cxb"/>
-                                </constraints>
-                                <state key="normal" title="Save in Cloud"/>
-                                <connections>
-                                    <action selector="saveInCloud:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C5u-2n-ouq"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y6n-8R-d2i">
                                 <rect key="frame" x="12" y="132" width="350" height="22"/>
                                 <subviews>
@@ -143,6 +132,17 @@
                                     <constraint firstItem="aqf-f2-Xcx" firstAttribute="leading" secondItem="Tbm-Aq-tcf" secondAttribute="leading" id="hFs-bZ-Jrh"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeE-1H-UxV">
+                                <rect key="frame" x="258" y="376" width="97" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="tx9-xm-Cxb"/>
+                                </constraints>
+                                <state key="normal" title="Save in Cloud"/>
+                                <connections>
+                                    <action selector="saveInCloud:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C5u-2n-ouq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389.5" y="-158.5"/>
+            <point key="canvasLocation" x="899.5" y="-949.5"/>
         </scene>
         <!--Master Table View Controller-->
         <scene sceneID="ZLJ-lG-XNl">
@@ -219,6 +219,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="keQ-lW-Wbp" kind="showDetail" id="KJS-hu-3Hc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -236,7 +239,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdg-Jv-nWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466.5" y="-90.5"/>
+            <point key="canvasLocation" x="441.5" y="-202.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="97m-7X-esf">
@@ -255,7 +258,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tC-X5-LlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932.5" y="-314.5"/>
+            <point key="canvasLocation" x="441.5" y="-949.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XES-jo-nRa">
@@ -275,7 +278,74 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cc-z3-nTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="-90"/>
+            <point key="canvasLocation" x="-15.5" y="-182.5"/>
+        </scene>
+        <!--Single CIT-->
+        <scene sceneID="fE2-6f-DJo">
+            <objects>
+                <tableViewController id="8OM-zo-osV" customClass="CITonly" customModule="CIT" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zPi-ga-Aqj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wbV-bO-b2q">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wbV-bO-b2q" id="wxU-hH-85t">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="coordinatorCell" selectionStyle="default" indentationWidth="10" id="AhY-9K-yel">
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AhY-9K-yel" id="Kdb-9V-kYn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8OM-zo-osV" id="FIh-MU-nkF"/>
+                            <outlet property="delegate" destination="8OM-zo-osV" id="FLJ-RW-tNe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Single CIT" id="ZEV-XW-UVu">
+                        <barButtonItem key="leftBarButtonItem" title="back" id="TcT-hp-FUQ">
+                            <connections>
+                                <action selector="done:" destination="8OM-zo-osV" id="Cdd-Td-UCJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTB-j8-gQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1356.5" y="-113.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="F5p-EF-iRy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="keQ-lW-Wbp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dar-Cq-Lae">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8OM-zo-osV" kind="relationship" relationship="rootViewController" id="U8z-Cg-8zl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksH-OS-gWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="899.5" y="-113.5"/>
         </scene>
     </scenes>
 </document>

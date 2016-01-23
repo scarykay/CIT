@@ -78,12 +78,19 @@ class MasterTableViewController: UITableViewController, CloudKitDelegate {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "detailsSegue" {
-           _ = self.tableView.indexPathForSelectedRow!.row
-            _ = segue.destinationViewController as! UINavigationController
-            segue.destinationViewController as! DetailsViewController
+//        //pg121
+            if (segue.identifier == "detailsSegue"){
+                _ = segue.destinationViewController as! UINavigationController
+                _ = navigationController!.topViewController as! MasterTableViewController
 
-            
+//        if segue.identifier == "detailsSegue" {
+//           _ = self.tableView.indexPathForSelectedRow!.row
+//            //_ = segue.destinationViewController as! UINavigationController
+//            _ = segue.destinationViewController as! SingleViewController
+//            _ = navigationController!.topViewController as! MasterTableViewController
+//            
+
+        
         } else if segue.identifier == "addItemSegue" {
             
             _ = segue.destinationViewController as! UINavigationController

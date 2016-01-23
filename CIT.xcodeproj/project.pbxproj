@@ -18,6 +18,7 @@
 		8F21FD2A1BF3FE17005E5457 /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F21FD291BF3FE17005E5457 /* CloudKitHelper.swift */; };
 		8F21FD2C1BF40022005E5457 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F21FD2B1BF40022005E5457 /* TeamDetail.swift */; };
 		8F21FD2E1BF406D1005E5457 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F21FD2D1BF406D1005E5457 /* MasterTableViewController.swift */; };
+		8F51DCA71C543000004E667F /* CITonly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F51DCA61C543000004E667F /* CITonly.swift */; };
 		8FE08F1B1BF548CC00C418F3 /* Todos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE08F1A1BF548CC00C418F3 /* Todos.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		8F21FD291BF3FE17005E5457 /* CloudKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		8F21FD2B1BF40022005E5457 /* TeamDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		8F21FD2D1BF406D1005E5457 /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
+		8F51DCA61C543000004E667F /* CITonly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CITonly.swift; sourceTree = SOURCE_ROOT; };
 		8FE08F1A1BF548CC00C418F3 /* Todos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				8F21FCFC1BF3FCA1005E5457 /* Main.storyboard */,
+				8F51DCA61C543000004E667F /* CITonly.swift */,
 				8F21FD291BF3FE17005E5457 /* CloudKitHelper.swift */,
 				8F21FD261BF3FCD3005E5457 /* CIT.entitlements */,
 				8F21FCF81BF3FCA1005E5457 /* AppDelegate.swift */,
@@ -283,6 +286,7 @@
 				8F21FCFB1BF3FCA1005E5457 /* DetailsViewController.swift in Sources */,
 				8F21FD2C1BF40022005E5457 /* TeamDetail.swift in Sources */,
 				8F21FCF91BF3FCA1005E5457 /* AppDelegate.swift in Sources */,
+				8F51DCA71C543000004E667F /* CITonly.swift in Sources */,
 				8F21FD2E1BF406D1005E5457 /* MasterTableViewController.swift in Sources */,
 				8F21FD2A1BF3FE17005E5457 /* CloudKitHelper.swift in Sources */,
 				8FE08F1B1BF548CC00C418F3 /* Todos.swift in Sources */,
