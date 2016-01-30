@@ -1,6 +1,9 @@
 import Foundation
 import CloudKit
 
+let EstablishmentType = "TeamDetail"
+
+
 protocol CloudKitDelegate {
     func errorUpdating(error: NSError)
     func modelUpdated()
@@ -17,6 +20,7 @@ class CloudKitHelper {
     class func sharedInstance() -> CloudKitHelper {
         return cloudKitHelper
     }
+      var items = [TeamDetail]()
     
     init() {
         container = CKContainer.defaultContainer()
@@ -40,7 +44,8 @@ class CloudKitHelper {
         todoRecord.setValue(city, forKey: "city")
         todoRecord.setValue(state, forKey: "state")
         todoRecord.setValue(zipcode, forKey: "zipcode")
-        //todoRecord.setValue(location, forKey: "location")
+        //todoRecord.setValue(coordinator, forKey: "coordinator")
+            //todoRecord.setValue(location, forKey: "location")
 
         
         publicDB.saveRecord((todoRecord), completionHandler: { (record, error) -> Void in
@@ -84,6 +89,87 @@ class CloudKitHelper {
             }
         }
     }
+    
+    // Mark -  --- adding on in Feb 2016
+    
+    func establishment(ref: CKReference) -> TeamDetail! {
+        let matching = items.filter {$0.record.recordID == ref.recordID}
+        var e : TeamDetail!
+        if matching.count > 0 {
+            e = matching[0]
+        }
+        return e
+    }
+    
+    func fetchEstablishments(location:CLLocation,
+        radiusInMeters:CLLocationDistance) {
+            // 1
+            let radiusInKilometers = radiusInMeters / 1000.0
+            // 2
+            let locationPredicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f",
+                "Location",
+                location,
+                radiusInKilometers)
+            // 3
+            let query = CKQuery(recordType: EstablishmentType,
+                predicate:  locationPredicate)
+            // 4
+            publicDB.performQuery(query, inZoneWithID: nil) {
+                results, error in
+                if error != nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.delegate?.errorUpdating(error!)
+                        return
+                    }
+                } else {
+                    self.items.removeAll(keepCapacity: true)
+                    for _ in results!{
+                        let establishment = TeamDetail!()
+                        self.items.append(establishment)
+                    }
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.delegate?.modelUpdated()
+                        return
+                    }
+                }
+            }
+    }
+    
+    func fetchEstablishments(location: CLLocation,
+        rec: CKRecord?,  //mkp
+        radiusInMeters:CLLocationDistance,
+        completion:    (results:[TeamDetail]!, error:NSError!) -> ()) {
+            let radiusInKilometers = radiusInMeters / 1000.0 //1
+            //Apple Campus location = 37.33182, -122.03118
+            let location = CLLocation(latitude: 37.33182, longitude: -122.03118)
+            
+            let locationPredicate = NSPredicate(format: "distanceToLocation:fromLocation:(%K,%@) < %f",
+                "Location",
+                location,
+                radiusInKilometers) //2
+            let query = CKQuery(recordType: EstablishmentType,
+                predicate:  locationPredicate) //3
+            publicDB.performQuery(query, inZoneWithID: nil) { //4
+                results, error in
+                var res = [TeamDetail]()
+                if let records = results {
+                    for _ in records {
+                        let establishment = TeamDetail!()
+                        res.append(establishment)
+                    }
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(results: res, error: error)
+                }
+            }
+    }
+    
+    // -------- end of addition
+    
+    
+    
+    
 }
 let cloudKitHelper = CloudKitHelper()
 

@@ -10,7 +10,9 @@ import UIKit
 
 class MasterTableViewController: UITableViewController, CloudKitDelegate {
 
+
     let model: CloudKitHelper = CloudKitHelper.sharedInstance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         model.delegate = self;
@@ -40,8 +42,8 @@ class MasterTableViewController: UITableViewController, CloudKitDelegate {
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("masterCell", forIndexPath: indexPath) as UITableViewCell
         
         // Configure the cell...
         cell.textLabel?.text = cloudKitHelper.todos[indexPath.row].name
@@ -50,6 +52,7 @@ class MasterTableViewController: UITableViewController, CloudKitDelegate {
         //cell.detailTextLabel?.font = UIFont(name: "SanFrancisco", size: 14)
         return cell
     }
+
     
     
     func modelUpdated() {
@@ -78,17 +81,27 @@ class MasterTableViewController: UITableViewController, CloudKitDelegate {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        //pg121
+        
+       //pg121
             if (segue.identifier == "detailsSegue"){
+                
+                  _ = self.tableView.indexPathForSelectedRow!.row
                 _ = segue.destinationViewController as! UINavigationController
-                _ = navigationController!.topViewController as! MasterTableViewController
-
+            //     _ = segue.destinationViewController as! CITonly
+                 _ = navigationController!.topViewController as! MasterTableViewController
+    
+              /*  let selectedItemIndexPath = self.tableView.indexPathForSelectedRow!.row
+                let selectedTeamDetail = cloudKitHelper.todos[selectedItemIndexPath]
+                let detailsScreen = segue.destinationViewController as! CITonly
+                detailsScreen.featuredItem = selectedTeamDetail
+      */
 //        if segue.identifier == "detailsSegue" {
 //           _ = self.tableView.indexPathForSelectedRow!.row
 //            //_ = segue.destinationViewController as! UINavigationController
-//            _ = segue.destinationViewController as! SingleViewController
-//            _ = navigationController!.topViewController as! MasterTableViewController
-//            
+//              _ = segue.destinationViewController as! SingleViewController
+          // _ = navigationController!.topViewController as! MasterTableViewController
+       
+                
 
         
         } else if segue.identifier == "addItemSegue" {
