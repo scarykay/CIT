@@ -79,30 +79,16 @@ class MasterTableViewController: UITableViewController, CloudKitDelegate {
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
-       //pg121
-            if (segue.identifier == "detailsSegue"){
-                
-                  _ = self.tableView.indexPathForSelectedRow!.row
-                _ = segue.destinationViewController as! UINavigationController
-            //     _ = segue.destinationViewController as! CITonly
-                 _ = navigationController!.topViewController as! MasterTableViewController
     
-              /*  let selectedItemIndexPath = self.tableView.indexPathForSelectedRow!.row
-                let selectedTeamDetail = cloudKitHelper.todos[selectedItemIndexPath]
-                let detailsScreen = segue.destinationViewController as! CITonly
-                detailsScreen.featuredItem = selectedTeamDetail
-      */
-//        if segue.identifier == "detailsSegue" {
-//           _ = self.tableView.indexPathForSelectedRow!.row
-//            //_ = segue.destinationViewController as! UINavigationController
-//              _ = segue.destinationViewController as! SingleViewController
-          // _ = navigationController!.topViewController as! MasterTableViewController
-       
-                
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detailsSegue" {
+           
+            if let destination = segue.destinationViewController as? CITonly {
+                if let selectedItemIndexPath = self.tableView.indexPathForSelectedRow?.row {
+                    destination.featuredItem = cloudKitHelper.todos[selectedItemIndexPath]
+               }
+            }
+   
         
         } else if segue.identifier == "addItemSegue" {
             

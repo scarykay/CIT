@@ -12,4 +12,14 @@ class EstablishmentCell: UITableViewCell {
     
     @IBOutlet weak var stateLabel: UILabel!
     
+    @IBOutlet weak var coordinatorLabel: UILabel!
+    
+    @IBOutlet weak var phoneLabel: UILabel!
+    
+    @IBOutlet weak var webLabel: UILabel!
+    
+    
+    let model: CloudKitHelper = CloudKitHelper.sharedInstance()
+    
+
 }
